@@ -9,6 +9,7 @@ import { CoreModule } from './@core/core.module';
 import { SharedModule } from './@shared/shared.module';
 import { Observable, of } from 'rxjs';
 import { I18N } from '../config/language-config';
+import { RouterModule } from '@angular/router';
 
 class I18NLoader implements TranslateLoader {
   getTranslation(lang: 'zh-cn' | 'en-us'): Observable<Object> {
@@ -23,6 +24,7 @@ class I18NLoader implements TranslateLoader {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    RouterModule,
     CoreModule.forRoot(),
     SharedModule.forRoot(),
     TranslateModule.forRoot({

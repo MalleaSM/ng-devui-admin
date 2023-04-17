@@ -7,7 +7,7 @@ import { DEFAULT_LANG, I18N_LANGUAGES } from '../config/language-config';
 })
 export class AppComponent {
   currentLang = localStorage.getItem('lang') || window.navigator.language.toLowerCase() || DEFAULT_LANG;
-
+  title = 'jest';
   constructor(private translate: TranslateService) {
     this.translate.addLangs(I18N_LANGUAGES);
     translate.setDefaultLang(DEFAULT_LANG);
