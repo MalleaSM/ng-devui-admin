@@ -6,10 +6,10 @@ import { FormLayout } from 'ng-devui';
 import { I18nService } from 'ng-devui/i18n';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
-import { AuthService } from 'src/app/@core/services/auth.service';
-import { PersonalizeService } from 'src/app/@core/services/personalize.service';
-import { LANGUAGES } from 'src/config/language-config';
-import { environment } from 'src/environments/environment';
+import { AuthService } from '../../../@core/services/auth.service';
+import { PersonalizeService } from '../../../@core/services/personalize.service';
+import { LANGUAGES } from '../../../../config/language-config';
+import { environment } from '../../../../environments/environment';
 import { ThemeType } from '../../models/theme';
 
 @Component({
@@ -131,6 +131,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/']);
           },
           (error) => {
+            console.log("error check")
+            console.log('i18nValues', this.i18nValues);
             this.toastMessage = [
               {
                 severity: 'error',
@@ -138,6 +140,8 @@ export class LoginComponent implements OnInit {
                 content: this.i18nValues['noticeMessage']['emailContent'],
               },
             ];
+            console.log("toastMessage" + this.toastMessage);
+           
           }
         );
         break;
