@@ -6,6 +6,7 @@ import { of, throwError } from "rxjs";
 import { AuthService } from "../../../@core/services/auth.service";
 import { PersonalizeService } from "../../../@core/services/personalize.service";
 import { LoginComponent } from "./login.component";
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -14,7 +15,10 @@ describe('LoginComponent', () => {
   let authService: AuthService;
   let i18n: I18nService;
   let translateService: TranslateService;
-  let localStorageMock: any;
+
+  beforeAll(() => {
+    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+  });
 
   beforeEach(async() => {
     router = {
@@ -38,7 +42,6 @@ describe('LoginComponent', () => {
       getLocale: jest.fn(() => of({})),
       setLocale: jest.fn(),
     } as any;
-
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [TranslateModule.forRoot()],
