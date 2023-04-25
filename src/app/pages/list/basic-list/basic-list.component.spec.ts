@@ -60,7 +60,7 @@ describe('BasicListComponent', () => {
     expect(getListSpy).toHaveBeenCalled();
   });
 
-      it('should call getList method when the page size changes', () => {
+  it('should call getList method when the page size changes', () => {
     const getListSpy = jest.spyOn(component, 'getList');
     component.onSizeChange(20);
     expect(getListSpy).toHaveBeenCalled();
