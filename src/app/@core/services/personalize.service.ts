@@ -192,7 +192,7 @@ export class PersonalizeService {
     const themeService = (window as { [key: string]: any })['devuiThemeService'];
     this.setUiTheme();
     if (!(themeService && themeService.eventBus)) {
-      return;
+      return undefined;
     }
     const themeChangedFunc = () => {
       this.setUiTheme();
